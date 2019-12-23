@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>trga-analytics demo</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+ <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+    <script src="dist/trga-analytics-with-debug.js"></script>
+<!--    <script src="src/trga-analytics-api.js"></script>-->
+<!--    <script src="src/trga-ga-api.js"></script>-->
+<!--    <script src="src/trga-dom-helper.js"></script>-->
+<!--    <script src="src/trga-debug.js"></script>-->
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-24188052-4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-24188052-4');
+  </script>
+
+</head>
+<body>
+
+  <nav class="navbar is-info trga-zone" data-trga-zone="navbar">
+    <div class="navbar-brand">
+        <div class="navbar-item">
+            <div class="field is-grouped">
+                <p class="control">
+                    <a class="bd-tw-button button trga-trigger-by-click" data-trga-label="GitHub" href="https://github.com/ShaiYer/trga-analytics">
+                <span class="icon">
+                  <svg class="svg-inline--fa fa-twitter fa-w-16" aria-hidden="true" data-prefix="fab" data-icon="twitter" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" data-fa-i2svg="">
+<path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                  </svg>
+                </span>
+                        <span>
+                  GitHub
+                </span>
+                    </a>
+                </p>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div id="navMenuColorinfo-example" class="navbar-menu is-active">
+      <div class="navbar-start">
+
+      </div>
+
+      <div class="navbar-end">
+
+      </div>
+    </div>
+  </nav>
+<div class="container">
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          CSS Driven events tracking by Google Analytics - Demo Page
+        </h1>
+        <h2 class="subtitle">
+          trga-analytics v1.0 by Shai Yerushalmi
+        </h2>
+
+      </div>
+    </div>
+  </section>
+
+<section class="section">
+
+  <div class="content">
+<h2>Quick Reference</h2>
+  </div>
+<div class="content">
+  <h4>1. Add Google Analytics code</h4>
+</div>
+<div class="content">
+  <h4>2. Import trga-analytics JavaScript</h4>
+</div>
+
+<div class="content">
+<h4>3. Define Zone By CSS</h4>
+  <article class="message trga-zone" data-trga-zone="buttons zone a">
+
+    <div class="message-body">
+      <p>
+          Define the zones which will be record as 'category' in the Google Analytics
+      </p>
+      <pre>
+        &lt;navbar <strong>class="trga-zone" data-trga-zone="zone_name"</strong>&gt;
+          ....
+          ....
+        &lt;/navbar&gt;
+      </pre>
+    </div>
+  </article>
+
+</div>
+
+<div class="content">
+  <h4>4. Define Events By CSS which will be record as 'action' in the Google Analytics</h4>
+  <article class="message is-primary trga-zone" data-trga-zone="buttons zone 1">
+    <div class="message-header">
+      <p>Tracking Zone 1</p>
+
+    </div>
+    <div class="message-body">
+      <div class="columns is-multiline">
+
+        <div class="column is-2">
+          <button type="button" class="button is-info trga-trigger-by-click" data-trga-label="default">event click-1</button>
+        </div>
+        <div class="column is-10">
+          <p>
+              track click with label `click-1`
+          </p>
+          <code>
+                  &lt;button type="button" class="button is-info  <strong>trga-trigger-by-click</strong>" <strong>data-trga-label="click-1"</strong>&gt;track click 'click-1'&lt;/button&gt;
+        </code>
+        </div>
+
+
+        <div class="column is-2">
+          <button type="button" class="button is-primary trga-trigger-by-click">event click-2</button>
+        </div>
+        <div class="column is-10">
+          <p>
+              track click without label - get the default event name from the text
+          </p>
+          <code>
+                  &lt;button type="button" class="button is-info  <strong>trga-trigger-by-click</strong>"&gt;<strong>click-1</strong>&lt;/button&gt;
+        </code>
+        </div>
+      </div>
+    </div>
+  </article>
+
+</div>
+
+<div class="content">
+
+  <article class="message is-primary  trga-zone" data-trga-zone="buttons zone 2">
+    <div class="message-header">
+      <p>Tracking Zone 2</p>
+
+    </div>
+    <div class="message-body">
+      <div class="columns is-multiline">
+
+        <div class="column is-2">
+          <button type="button" class="button is-success  trga-trigger-by-mouseover" data-trga-label="mouseover-1" data-trga-count-limit="3">event mouseover</button>
+        </div>
+        <div class="column is-10">
+          <p>
+              track mouseover with label `mouseover-1`
+          </p>
+          <code>
+            &lt;button type="button" class="button is-success  <strong>trga-trigger-by-mouseover</strong>" <strong>data-trga-label="mouseover-1"</strong>&gt;track mouseover&lt;/button&gt;
+          </code>
+        </div>
+        <div class="column is-2">
+          <input size="20" class="input trga-trigger-by-focus  trga-trigger-by-focusout trga-trigger-by-keypress-once" data-trga-label="input 1" type="text" placeholder="set and track input events">
+        </div>
+
+          <div class="column is-10">
+              <p>
+                  Input element - track focus, focusout, keypress once with label `input 1`
+              </p>
+              <code>
+                  &lt;input class="input <strong>trga-trigger-by-focus  trga-trigger-by-focusout trga-trigger-by-keypress-once" data-trga-label="input 1"</strong> type="text" placeholder="set and track input events"&gt;
+              </code>
+          </div>
+
+          <div class="column is-2">
+              <div class="select is-multiple">
+                  <select multiple size="4" class="trga-trigger-by-scroll trga-trigger-by-change" data-trga-label="select 1">
+                      <option value="Argentina">Argentina</option>
+                      <option value="Bolivia">Bolivia</option>
+                      <option value="Brazil">Brazil</option>
+                      <option value="Chile">Chile</option>
+                      <option value="Colombia">Colombia</option>
+                      <option value="Ecuador">Ecuador</option>
+                      <option value="Guyana">Guyana</option>
+                      <option value="Paraguay">Paraguay</option>
+                      <option value="Peru">Peru</option>
+                      <option value="Suriname">Suriname</option>
+                      <option value="Uruguay">Uruguay</option>
+                      <option value="Venezuela">Venezuela</option>
+                  </select>
+              </div>
+          </div>
+
+          <div class="column is-10">
+              <p>
+                  track select change and scroll events
+              </p>
+              <code>
+                  &lt;select multiple size="4" class="<strong>trga-trigger-by-scroll trga-trigger-by-change</strong>" <strong>data-trga-label="select 1"</strong>&gt;
+              </code>
+          </div>
+
+
+
+      </div>
+    </div>
+  </article>
+
+</div>
+
+
+<div class="content">
+
+<h4>5. Debugging Functionality</h4>
+  <article class="message trga-zone" data-trga-zone="buttons zone 2">
+
+    <div class="message-body">
+      <div class="columns is-multiline">
+
+        <div class="column is-2">
+          <button type="button" onclick="trga.hiliteDebug()" class="button is-warning">Highlight</button>
+        </div>
+        <div class="column is-10">
+          <p>
+              Highlight Tracking Zone and Tracked Elements
+          </p>
+          <code>
+            trga.hiliteDebug()
+          </code>
+        </div>
+
+        <div class="column is-2">
+          <button type="button" id="btn-debug" onclick="trga.setDebug()" class="button is-warning">Log events</button>
+        </div>
+        <div class="column is-10">
+          <p>
+              Show Console log of tracked data. Make sure to open the browser's console to see the log.
+          </p>
+          <code>
+            trga.setDebug()
+          </code>
+        </div>
+      </div>
+    </div>
+  </article>
+</div>
+</section>
+</div>
+<nav class="navbar is-info "></nav>
+</body>
+</html>

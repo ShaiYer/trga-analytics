@@ -1,0 +1,39 @@
+{
+  "name": "trga-analytics",
+  "version": "1.0.0",
+  "description": "Super fast JavaScript to set & track events in Google Analytics by CSS classes",
+  "main": "trga-analytics.js",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-cli": "^2.2.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-minify": "^3.1.0",
+    "gulp-order": "^1.2.0"
+  },
+  "devDependencies": {
+    "gulp-watch": "^5.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShaiYer/trga-analytics.git"
+  },
+  "keywords": [
+    "Google",
+    "Analytics",
+    "CSS",
+    "driven",
+    "track",
+    "events",
+    "Javascript",
+    "Framework"
+  ],
+  "author": "Shai Yerushalmi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ShaiYer/trga-analytics/issues"
+  },
+  "homepage": "https://github.com/ShaiYer/trga-analytics#readme"
+}

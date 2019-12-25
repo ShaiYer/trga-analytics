@@ -50,7 +50,7 @@ gulp.task('concatOrder', function() {
 gulp.task('compressJs', function() {
 
     return gulp
-        .src('dist/*.js')
+        .src(['dist/trga-analytics-with-debug.js', 'dist/trga-analytics.js'])
         .pipe(minify({
             ext:{
                 // src:'-debug.js',

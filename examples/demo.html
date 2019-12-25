@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
-    <script src="dist/trga-analytics-with-debug.js"></script>
+    <script src="../dist/trga-analytics-with-debug.js"></script>
 <!--    <script src="src/trga-analytics-api.js"></script>-->
 <!--    <script src="src/trga-ga-api.js"></script>-->
 <!--    <script src="src/trga-dom-helper.js"></script>-->
@@ -220,13 +220,13 @@
 <div class="content">
 
 <h4>5. Debugging Functionality</h4>
-  <article class="message trga-zone" data-trga-zone="buttons zone 2">
+  <article class="message trga-zone" data-trga-zone="Debugging">
 
     <div class="message-body">
       <div class="columns is-multiline">
 
         <div class="column is-2">
-          <button type="button" onclick="trga.hiliteDebug()" class="button is-warning">Highlight</button>
+          <button type="button" onclick="trga.hiliteDebug()" class="button is-warning trga-trigger-by-click">Highlight</button>
         </div>
         <div class="column is-10">
           <p>
@@ -238,7 +238,7 @@
         </div>
 
         <div class="column is-2">
-          <button type="button" id="btn-debug" onclick="trga.setDebug()" class="button is-warning">Log events</button>
+          <button type="button" id="btn-debug" onclick="trga.setDebug()" class="button is-warning trga-trigger-by-click">Log events</button>
         </div>
         <div class="column is-10">
           <p>

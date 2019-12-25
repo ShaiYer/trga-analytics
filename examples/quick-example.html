@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>trga-analytics quick example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- import javescript -->
+    <script src="https://shaiyer.github.io/trga-analytics/dist/trga-analytics-with-debug.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!-- !important: Use your own GA_MEASUREMENT_ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-24188052-4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-24188052-4');
+    </script>
+</head>
+<body>
+
+    <!-- define zone-->
+    <div class="trga-zone" data-trga-zone="test-zone-1">
+        <h1>Quick Example - trga-analytics </h1>
+
+        <!--  define event-->
+        <button type="button" class="trga-trigger-by-click" onclick="alert('Trigger By click')" data-trga-label="test-click-1">Tracking click event</button>
+        <button type="button" class="trga-trigger-by-mouseover"  data-trga-label="test-mouseover-1">Tracking mouseover event</button>
+
+    </div>
+
+</body>
+</html>

@@ -573,7 +573,8 @@
         }
 
         label = label || 'label N/A';
-        label = label.trim();
+        label = label.trim().substring(0, 30);
+
         if(label.length > config.limitLabelStringLength) {
             label = label.substring(0, config.limitLabelStringLength);
         }
@@ -618,11 +619,13 @@
      */
     function _getDataAttribute(el, dataAttr) {
 
-        var attr = el.dataset[dataAttr];
+        if (el && el.dataset) {
+            var attr = el.dataset[dataAttr];
 
-        return attr;
+            return attr;
+        }
 
-
+        return false;
     }
 
 

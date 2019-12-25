@@ -6,7 +6,7 @@
 ![Generic badge](https://img.shields.io/badge/Made%20with-JavaScript%20ECMAScript%205-l.svg)
 [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/ShaiYer/trga-analytics/blob/master/LICENSE)
 [![Generic badge](https://img.shields.io/badge/npmjs-blue.svg)](https://www.npmjs.com/package/trga-analytics)
-[![Generic badge](https://img.shields.io/badge/Demo-blue.svg)](https://shaiyer.github.io/trga-analytics/demo.html)
+[![Generic badge](https://img.shields.io/badge/Demo-blue.svg)](https://shaiyer.github.io/trga-analytics/examples/demo.html)
 
 
 <p>Light JavaScript framework to set and track events by just adding CSS classes to HTML elements</p>
@@ -15,6 +15,7 @@
 1. Add Google Analytics code with your ID.
 2. Import trga-analytics JavaScript.
 3. Add CSS trigger classes to HTML elements.
+4. Validate tracked events with Google Analytics, at Realtime -> events
 
 
 - It is a stand-alone vanilla JS code.
@@ -22,7 +23,7 @@
 - The code attaches event listeners with a namespacing to avoid interference to the original code.
 - Event trigger throttling to avoid event-flooding such as in the cases of scroll/hover - 1 second throttling for each defined event (not interfering with the other events)
 
-Demo Page: https://shaiyer.github.io/trga-analytics/demo.html
+Demo Page: https://shaiyer.github.io/trga-analytics/examples/demo.html
 
 ### Installation
 ```
@@ -35,10 +36,13 @@ $ npm i --save-dev trga-analytics
 <script src="trga-analytics-with-debug.js"></script>
 
 // for production - script without debug functionality
-<script src="trga-analytics-with-debug.js"></script>
+<script src="trga-analytics.js"></script>
+
+// for quick examination you may use the version published on my github pages
+<script src="https://shaiyer.github.io/trga-analytics/dist/trga-analytics-with-debug.js"></script>
 ```
 
-### Quick example
+### Set tracking - as easy as it can get
 Tracking click event in GA with an action of click and a label of 'read more'. The category of the event is the wrapper zone which is optional to add.
 ```
 <button class="gray trga-trigger-by-click" data-trga-label="read more">Read more</button>
@@ -47,9 +51,46 @@ Tracking click event in GA with an action of click and a label of 'read more'. T
 ** Additional initialization is sometimes needed such as with dynamically added DOM elements - see below
 
 
+## Quick example
+
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>trga-analytics quick example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- import javescript -->
+    <script src="https://shaiyer.github.io/trga-analytics/dist/trga-analytics-with-debug.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!-- !important: Use your own GA_MEASUREMENT_ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+</head>
+<body>
+
+    <!-- define zone-->
+    <div class="trga-zone" data-trga-zone="test-zone-1">
+        <h1>Quick Example - trga-analytics </h1>
+
+        <!--  define event-->
+        <button type="button" class="trga-trigger-by-click" onclick="alert('Trigger By click')" data-trga-label="test-click-1">Tracking click event</button>
+        <button type="button" class="trga-trigger-by-mouseover"  data-trga-label="test-mouseover-1">Tracking mouseover event</button>
+    </div>
+</body>
+</html>
+```
 
 --------
-## Manual - longer version
+## Manual
 --------
 ### Import the CSS Driven Google Analytics JS library
 Import the JS library to your code following the google analytics import script

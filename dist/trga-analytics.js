@@ -160,8 +160,8 @@
         }
 
 
-        trgaApi['submitPageView'] = trgaGaApi.submitGaEvent;
-        trgaApi['submitEvent'] = trgaGaApi.submitGaPageView;
+        trgaApi['submitPageView'] = trgaGaApi.submitGaPageView;
+        trgaApi['submitEvent'] = trgaGaApi.submitGaEvent;
 
 
         // keep previous trga methods
